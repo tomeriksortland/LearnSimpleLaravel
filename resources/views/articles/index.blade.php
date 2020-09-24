@@ -10,15 +10,15 @@
 		    <div id="content">
 			    <div class="title">
 				    <h2>
-                        <a href="{{ route('articles.show', $article->Id) }}">
+                        <a href="{{ route('articles.show', $article->id) }}">
                             <br>
-                            {{ $article->Title }}
+                            {{ $article->title }}
                         </a>
                     </h2>
                 </div>
                 <p><img src="/images/banner.jpg" alt="" class="image image-full" /> </p>
 
-                {{!! $article->Excerpt !!}}
+                {{!! $article->excerpt !!}}
 
                 </div>
 

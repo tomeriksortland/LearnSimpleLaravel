@@ -7,8 +7,8 @@
 <body>
     <h1>My First LaravelTest!</h1>
 
-        <h2>{{ $post->Id }}</h2>
-        <h2>{{ $post->Uri }}</h2>
-        <h2>{{ $post->HtmlBody }}</h2>
+        <h2>{{ $post->id }}</h2>
+        <h2>{{ $post->uri }}</h2>
+        <h2>{{ $post->htmlbody }}</h2>
 </body>
 </html>

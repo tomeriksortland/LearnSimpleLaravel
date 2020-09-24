@@ -31,9 +31,9 @@ class ArticlesController extends Controller
     {
 
         $validatedAttributes = request()->validate([
-            'Title' => 'required',
-            'Excerpt' => 'required',
-            'Body' => 'required'
+            'title' => 'required',
+            'excerpt' => 'required',
+            'body' => 'required'
         ]);
 
         Article::create($validatedAttributes);
@@ -54,14 +54,14 @@ class ArticlesController extends Controller
         //Lagre endringen i databasen.
 
         $validatedAttributes = request()->validate([
-            'Title' => 'required',
-            'Excerpt' => 'required',
-            'Body' => 'required'
+            'title' => 'required',
+            'excerpt' => 'required',
+            'body' => 'required'
         ]);
 
         $article->update($validatedAttributes);
         
-        return redirect(route('articles.show', $article->Id));
+        return redirect(route('articles.show', $article->id));
     }
 
     public function destroy()

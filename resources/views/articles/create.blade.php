@@ -9,19 +9,19 @@
                 @csrf
 
                 <div class="field">
-                    <label class="label" for="Title">Title</label>
+                    <label class="label" for="title">Title</label>
 
                     <div class="control">
 
                     <input
                         class="input"
                         type="text"
-                        name="Title"
-                        id="Title"
-                        style="@error('Title') border-color: red @enderror"
-                        value="{{ old('Title') }}">
+                        name="title"
+                        id="title"
+                        style="@error('title') border-color: red @enderror"
+                        value="{{ old('title') }}">
 
-                        @error('Title')
+                        @error('title')
                     <p
                         class="help"
                         style="color:red">{{ $errors->first('Title') }}
@@ -32,23 +32,23 @@
                 </div>
 
                 <div class="field">
-                    <label class="label" for="Excerpt">Excerpt</label>
+                    <label class="label" for="excerpt">Excerpt</label>
 
                     <div class="control">
                         <textarea
                         class="textarea"
-                        name="Excerpt"
-                        id="Excerpt"
+                        name="excerpt"
+                        id="excerpt"
                         cols="100"
                         rows="8"
-                        style="@error('Excerpt') border-color: red @enderror"
-                        >{{ old('Excerpt') }}
+                        style="@error('excerpt') border-color: red @enderror"
+                        >{{ old('excerpt') }}
                         </textarea>
 
-                        @error('Excerpt')
+                        @error('excerpt')
                     <p
                         class="help"
-                        style="color:red">{{ $errors->first('Excerpt') }}
+                        style="color:red">{{ $errors->first('excerpt') }}
                     </p>
                         @enderror
 
@@ -56,22 +56,22 @@
                 </div>
 
                 <div class="field">
-                    <label class="label" for="Body">Body</label>
+                    <label class="label" for="body">Body</label>
 
                     <div class="control">
                         <textarea
                         class="textarea"
-                        name="Body"
-                        id="Body"
+                        name="body"
+                        id="body"
                         cols="100"
                         rows="8"
-                        style="@error('Body') border-color: red @enderror"
-                        >{{ old('Body') }}</textarea>
+                        style="@error('body') border-color: red @enderror"
+                        >{{ old('body') }}</textarea>
 
-                        @error('Body')
+                        @error('body')
                         <p
                         class="help"
-                        style="color:red">{{ $errors->first('Body') }}</p>
+                        style="color:red">{{ $errors->first('body') }}</p>
                         @enderror
 
                     </div>

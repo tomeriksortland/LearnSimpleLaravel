@@ -20,9 +20,9 @@
                 @foreach ($articles as $article)
 				<li class="first">
                     <h3>
-					    <a href="/articles/{{ $article->Id }}">{{ $article->Title }}</a>
+					    <a href="/articles/{{ $article->id }}">{{ $article->title }}</a>
                     </h3>
-					<p>{{ $article->Excerpt }}</p>
+					<p>{{ $article->excerpt }}</p>
                 </li>
                 @endforeach
 			</ul>

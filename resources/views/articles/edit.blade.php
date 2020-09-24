@@ -5,51 +5,51 @@
     <div id="page" class="container">
         <h1>Edit Article!</h1>
 
-        <form method="POST" action="/articles/{{ $article->Id }}">
+        <form method="POST" action="/articles/{{ $article->id }}">
             @csrf
             @method('PUT')
 
             <div class="field">
-                <label class="label" for="Title">Title</label>
+                <label class="label" for="title">Title</label>
 
                 <div class="control">
                     <input
                     class="input"
                     type="text"
-                    name="Title"
-                    style="@error('Title') border-color:red @enderror"
-                    id="Title"
-                    value="{{ $article->Title }}">
+                    name="title"
+                    style="@error('title') border-color:red @enderror"
+                    id="title"
+                    value="{{ $article->title }}">
                 </div>
             </div>
 
             <div class="field">
-                <label class="label" for="Excerpt">Excerpt</label>
+                <label class="label" for="excerpt">Excerpt</label>
 
                 <div class="control">
                     <textarea
                     class="textarea"
-                    name="Excerpt"
-                    id="Excerpt"
-                    style="@error('Excerpt') border-color:red @enderror"
+                    name="excerpt"
+                    id="excerpt"
+                    style="@error('excerpt') border-color:red @enderror"
                     cols="100"
                     rows="8"
-                    >{{ $article->Excerpt }}</textarea>
+                    >{{ $article->excerpt }}</textarea>
                 </div>
             </div>
 
             <div class="field">
-                <label class="label" for="Body">Body</label>
+                <label class="label" for="body">Body</label>
 
                 <div class="control">
                     <textarea
                     class="textarea"
-                    name="Body"
-                    id="Body"
-                    style="@error('Body') border-color:red @enderror"
+                    name="body"
+                    id="body"
+                    style="@error('body') border-color:red @enderror"
                     cols="100"
                     rows="8"
-                    >{{ $article->Body }}</textarea>
+                    >{{ $article->body }}</textarea>
                 </div>
             </div>
 
