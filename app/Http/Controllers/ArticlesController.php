@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
-use App\models\Tag;
+use App\Models\Tag;
 
 class ArticlesController extends Controller
 {
@@ -32,21 +32,23 @@ class ArticlesController extends Controller
     public function create()
     {
         //Vise et view med en "form" som har en "lage ny" side.
-        return view('articles.create');
+        $tags = Tag::all();
+        return view('articles.create', ['tags' => $tags]);
     }
 
     public function store()
     {
 
-        $validatedAttributes = request()->validate([
-            'title' => 'required',
-            'excerpt' => 'required',
-            'body' => 'required'
-        ]);
+         $article = new Article();
+         $article->title = request('title');
+         $article->excerpt = request('excerpt');
+         $article->body = request('body');
+         $article->user_id = 2;
+         $article->save();
+        
+         $article->tags()->attach(request('tags'));
 
-        Article::create($validatedAttributes);
-
-        return redirect(route('articles.index'));
+         return redirect(route('articles.index'));
 
     }
 
@@ -76,5 +78,15 @@ class ArticlesController extends Controller
     {
         //Slette fra databasen.
 
+    }
+
+    public function validateArticle()
+    {
+        return request()->validate([
+            'title' => 'required',
+            'excerpt' => 'required',
+            'body' => 'required',
+            'tags' => 'exists:tags,id'
+        ]);
     }
 }
