@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\Tag;
+use Illuminate\Http\Request;
+
 
 class ArticlesController extends Controller
 {
@@ -36,17 +38,17 @@ class ArticlesController extends Controller
         return view('articles.create', ['tags' => $tags]);
     }
 
-    public function store()
+    public function store(Request $request)
     {
 
          $article = new Article();
-         $article->title = request('title');
-         $article->excerpt = request('excerpt');
-         $article->body = request('body');
+         $article->title = $request->title;
+         $article->excerpt = $request->excerpt;
+         $article->body = $request->body;
          $article->user_id = 2;
          $article->save();
         
-         $article->tags()->attach(request('tags'));
+         $article->tags()->attach($request->tags);
 
          return redirect(route('articles.index'));
 
@@ -59,17 +61,21 @@ class ArticlesController extends Controller
         return  view('articles.edit', ['article' => $article]);
     }
 
-    public function update(Article $article)
+    public function update(Request $request, Article $article)
     {
-        //Lagre endringen i databasen.
+        // dd($request);
 
-        $validatedAttributes = request()->validate([
+        $request->validate([
             'title' => 'required',
             'excerpt' => 'required',
             'body' => 'required'
         ]);
 
-        $article->update($validatedAttributes);
+        $article->update([
+            'title' => $request->title,
+            'excerpt' => $request->excerpt,
+            'body' => $request->body
+        ]);
         
         return redirect(route('articles.show', $article->id));
     }

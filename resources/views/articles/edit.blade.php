@@ -5,7 +5,7 @@
     <div id="page" class="container">
         <h1>Edit Article!</h1>
 
-        <form method="POST" action="/articles/{{ $article->id }}">
+        <form method="POST" action="{{ route('articles.update', $article->id) }}">
             @csrf
             @method('PUT')
 
